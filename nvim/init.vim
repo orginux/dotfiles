@@ -1,7 +1,7 @@
 " =============================== Плагины
 call plug#begin('~/.vim/plugged')
 
-    " Дерево каталогов
+" Дерево каталогов
     Plug 'scrooloose/nerdtree'
     map <C-n> :NERDTreeToggle<CR>
     " autocmd BufEnter * lcd %:p:h
@@ -11,23 +11,26 @@ call plug#begin('~/.vim/plugged')
     autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
     let NERDTreeShowHidden=1
 
-    " Строка статуса
+" Строка статуса
     Plug 'vim-airline/vim-airline'
 
-    " Цветные скобки
+" Цветные скобки
     Plug 'luochen1990/rainbow'
     let g:rainbow_active = 1
 
-    " Автозакрытие скобок
+" Автозакрытие скобок
     Plug 'Raimondi/delimitMate'
+" Поддержка golang
+    Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+    let g:go_def_mode='gopls'
+    let g:go_info_mode='gopls'
+    inoremap <C-Space> <C-x><C-o>
 
-    " Поддержка golang
-    " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-
-    " Поддержка Python
+" Поддержка Python
     Plug 'davidhalter/jedi-vim'
     let g:pymode_rope = 0
     let g:pymode_python = 'python3'
+    let g:jedi#use_tabs_not_buffers = 1
 
     Plug 'Glench/Vim-Jinja2-Syntax'
 
@@ -36,36 +39,34 @@ call plug#begin('~/.vim/plugged')
     let g:pymode_lint_unmodified = 0
     let g:pymode_lint_on_fly = 0
 
-    " Отступы
+    Plug 'psf/black'
+
+
+" Отступы
     Plug 'Yggdroot/indentLine'
 
 
-    " Подсветка синтаксиса Dockerfile
+" Подсветка синтаксиса Dockerfile
     Plug 'ekalinin/dockerfile.vim'
     Plug 'skanehira/docker-compose.vim'
 
-    " Автодополнение
+" Автодополнение
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
-    " Автозаписть при запуске сборки
+" Автозаписть при запуске сборки
     set autowrite
     "Plug 'AndrewRadev/splitjoin.vim'
 
-    " Цветовая схема
-    " Plug 'joshdick/onedark.vim'
-    " Plug 'dracula/vim'
-    " Plug 'morhetz/gruvbox'
-    " Plug 'tyrannicaltoucan/vim-deep-space'
-    " Plug 'ajmwagar/vim-deus'
+" Цветовая схема
     Plug 'whatyouhide/vim-gotham'
 
-    " Анализатор кода
+" Анализатор кода
     Plug 'w0rp/ale'
 
-    " Поддержка C
+" Поддержка C
     Plug 'vim-scripts/c.vim'
 
-    " Plug 'chase/vim-ansible-yaml'
+" Plug 'chase/vim-ansible-yaml'
     autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
     filetype on
     Plug 'pearofducks/ansible-vim'
@@ -76,22 +77,22 @@ call plug#begin('~/.vim/plugged')
 
     Plug 'neomake/neomake'
 
-    " Функционал git
+" Функционал git
     "Plug 'airblade/vim-gitgutter'
-    " Plug 'Xuyuanp/nerdtree-git-plugin'
+    Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'mhinz/vim-signify'
 
-    " Поиск кода
+" Поиск кода
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'junegunn/fzf.vim'
 
-    " Nicer scrolling
+" Nicer scrolling
     Plug 'psliwka/vim-smoothie'
 
-    " Split and join programming lines
+" Split and join programming lines
     Plug 'AndrewRadev/splitjoin.vim'
 
-    " Startup screen
+" Startup screen
     Plug 'mhinz/vim-startify'
 
 
@@ -258,8 +259,9 @@ command! W execute 'silent w !sudo tee % >/dev/null' | edit!
 " run python code
 " nnoremap <buffer> <F9> :exec '!python3' shellescape(@%, 1)<cr>
 autocmd BufWinEnter *.py nnoremap <F9> :w<CR>:!python3 %:p<CR>
+autocmd BufWinEnter *.go nnoremap <F9> :w<CR>:!go run %:p<CR>
 
-" Autofix PEP8 errors
+" Python autofix PEP8 errors
 nnoremap <leader>pp :PymodeLintAuto<CR>
 
 " open ranger as a file chooser using the function below
@@ -486,12 +488,5 @@ endfunction
 set cursorline
 set background=dark
 set termguicolors
-" colorscheme deep-space
-" colorscheme deus
-" let g:deepspace_italics=1
-" let g:airline_theme='deep_space'
-" colorscheme onedark
-" colorscheme gotham
 colorscheme gotham256
 let g:gotham_airline_emphasised_insert = 0
-let g:airline_theme='gotham'
