@@ -11,6 +11,10 @@ call plug#begin('~/.vim/plugged')
     autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
     let NERDTreeShowHidden=1
 
+" Навигация по классам
+    Plug 'majutsushi/tagbar'
+    nmap <F8> :TagbarToggle<CR>
+
 " Строка статуса
     Plug 'vim-airline/vim-airline'
 
@@ -31,6 +35,13 @@ call plug#begin('~/.vim/plugged')
     let g:pymode_rope = 0
     let g:pymode_python = 'python3'
     let g:jedi#use_tabs_not_buffers = 1
+
+    autocmd BufNewFile,BufRead *.py set foldmethod=indent
+    autocmd BufNewFile,BufRead *.py set foldnestmax=1
+    autocmd BufNewFile,BufRead *.py set foldlevel=2
+    set nofoldenable
+    nnoremap <space> za
+    vnoremap <space> zf
 
     Plug 'Glench/Vim-Jinja2-Syntax'
 
@@ -317,6 +328,7 @@ nnoremap <Bar> <C-W>v<C-W><Right>
 
 " new tab
 nnoremap ,t :tabnew<CR>
+
 
 " ------ autocmd ------
 
