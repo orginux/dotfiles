@@ -19,6 +19,8 @@ export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[01;32m'
 export PATH=$PATH:/usr/local/go/bin
 
+export GOPATH="$HOME/go"
+
 # ensure ~/bin is on the path
 [[ $PATH =~ ~/bin ]] || PATH=~/bin:$PATH
 
@@ -50,22 +52,33 @@ PS1='[\u@\h \W]\$ '
 for f in "$HOME/.bash/"*?.bash; do
     . "$f"
 done
+
 alias l='ls'
 alias vim='nvim'
 alias ды='ls'
+alias дд='ll'
 alias мшь='nvim'
-alias bcat='/bin/cat'
-alias cat='bat'
+# alias bcat='/bin/cat'
+# alias cat='bat'
 alias rg='ranger'
+alias :q='exit'
 
 alias gs='git status'
 alias gaa='git add .'
+alias ga='git add'
 alias gcmsg='git commit -m'
+alias wa='watch -t -d !!'
 
 # al-info
-alias lzg='lazygit'
-alias lzd='lazydocker'
+alias lg='lazygit'
+alias ld='lazydocker'
+
+# virtualenv
+alias mla='source /home/orginux/repositories/_molecule/bin/activate'
+alias mla3='source /home/orginux/repositories/_molecule3/bin/activate'
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 [ -z "$TMUX" ] && command -v tmux > /dev/null && TERM=xterm-256color && exec tmux
+eval "$(starship init bash)"
+source <(kubectl completion bash)

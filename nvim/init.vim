@@ -15,8 +15,16 @@ call plug#begin('~/.vim/plugged')
     Plug 'majutsushi/tagbar'
     nmap <F8> :TagbarToggle<CR>
 
+" Цветовая схема
+    Plug 'whatyouhide/vim-gotham'
+    Plug 'rakr/vim-two-firewatch'
+    Plug 'arcticicestudio/nord-vim'
+    Plug 'ayu-theme/ayu-vim' " or other package manager
+    Plug 'dracula/vim', { 'as': 'dracula' }
+
 " Строка статуса
     Plug 'vim-airline/vim-airline'
+    let g:gotham_airline_emphasised_insert = 0
 
 " Цветные скобки
     Plug 'luochen1990/rainbow'
@@ -26,9 +34,10 @@ call plug#begin('~/.vim/plugged')
     Plug 'Raimondi/delimitMate'
 " Поддержка golang
     Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-    let g:go_def_mode='gopls'
-    let g:go_info_mode='gopls'
+    let g:go_fmt_command = "goimports"
     inoremap <C-Space> <C-x><C-o>
+    " let g:go_def_mode='gopls'
+    " let g:go_info_mode='gopls'
 
 " Поддержка Python
     Plug 'davidhalter/jedi-vim'
@@ -52,10 +61,8 @@ call plug#begin('~/.vim/plugged')
 
     Plug 'psf/black'
 
-
 " Отступы
     Plug 'Yggdroot/indentLine'
-
 
 " Подсветка синтаксиса Dockerfile
     Plug 'ekalinin/dockerfile.vim'
@@ -67,9 +74,6 @@ call plug#begin('~/.vim/plugged')
 " Автозаписть при запуске сборки
     set autowrite
     "Plug 'AndrewRadev/splitjoin.vim'
-
-" Цветовая схема
-    Plug 'whatyouhide/vim-gotham'
 
 " Анализатор кода
     Plug 'w0rp/ale'
@@ -154,12 +158,6 @@ set cin
 " автоотступы для новых строк
 set ai
 
-" tab
-set tabstop=4
-set shiftwidth=4
-set smarttab
-set expandtab
-set smartindent
 
 " =============================== Клавиши
 
@@ -198,6 +196,9 @@ set expandtab          " Tab key inserts spaces not tabs
 set softtabstop=4      " spaces to enter for each tab
 set shiftwidth=4       " amount of spaces for indentation
 set shortmess+=aAcIws  " Hide or shorten certain messages
+set tabstop=4
+set smarttab
+set smartindent
 
 let g:netrw_altv = 1
 let g:netrw_liststyle = 3
@@ -498,7 +499,23 @@ endfunction
 
 "Цветовая схема
 set cursorline
-set background=dark
+" set background=dark
 set termguicolors
-colorscheme gotham256
-let g:gotham_airline_emphasised_insert = 0
+" colorscheme gotham256
+" colorscheme nord
+
+colorscheme dracula
+let g:airline_theme='dracula' " if you have Airline installed and want the associated theme
+
+" ayu
+" set termguicolors     " enable true colors support
+" let ayucolor="light"  " for light version of theme
+" let ayucolor="mirage" " for mirage version of theme
+" let ayucolor="dark"   " for dark version of theme
+" colorscheme ayu
+" let g:airline_theme='ayu' " if you have Airline installed and want the associated theme
+
+" two
+" let g:two_firewatch_italics=1
+" colo two-firewatch
+" let g:airline_theme='twofirewatch' " if you have Airline installed and want the associated theme

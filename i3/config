@@ -24,8 +24,8 @@ client.background       $bg
 for_window [class="^.*"] border pixel 2, title_format "<b> %class >> %title </b>"
 
 # gaps
-#gaps inner 15
-#gaps outer 5
+gaps inner 5
+# gaps outer 10
 
 # font
 font pango:monospace 11
@@ -45,11 +45,9 @@ set $WS2 "2: "
 set $WS3 "3: "
 set $WS4 "4: "
 set $WS5 "5: "
-set $WS6 "6: "
-set $WS7 "7: "
+set $WS6 "6: ♬"
+set $WS7 "7: "
 set $WS8 "8: "
-set $WS9 "9: "
-set $WS0 "0: "
 
 # monitors
 set $Mon1 HDMI1
@@ -89,7 +87,8 @@ bindsym $Mod+d exec --no-startup-id rofi_run -r
 
 # core
 bindsym $Mod+w          exec --no-startup-id exo-open --launch WebBrowser
-bindsym $Mod+f          exec ranger
+bindsym $Mod+f          exec firefox
+# bindsym $Mod+f          exec ranger
 bindsym $Mod+t          exec TogglDesktop
 bindsym $Mod+o          exec evince
 bindsym $Mod+Return     exec --no-startup-id exo-open --launch TerminalEmulator
