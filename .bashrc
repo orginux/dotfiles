@@ -77,8 +77,6 @@ alias ld='lazydocker'
 alias mla='source /home/orginux/repositories/_molecule/bin/activate'
 alias mla3='source /home/orginux/repositories/_molecule3/bin/activate'
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
 [ -z "$TMUX" ] && command -v tmux > /dev/null && TERM=xterm-256color && exec tmux
 eval "$(starship init bash)"
 source <(kubectl completion bash)
