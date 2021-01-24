@@ -268,7 +268,7 @@ command! W execute 'silent w !sudo tee % >/dev/null' | edit!
 
 " ------ basic maps ------
 
-" run python code
+" run code
 " nnoremap <buffer> <F9> :exec '!python3' shellescape(@%, 1)<cr>
 autocmd BufWinEnter *.py nnoremap <F9> :w<CR>:!python3 %:p<CR>
 autocmd BufWinEnter *.go nnoremap <F9> :w<CR>:!go run %:p<CR>
