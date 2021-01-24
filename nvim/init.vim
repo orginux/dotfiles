@@ -36,6 +36,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
     let g:go_fmt_command = "goimports"
     inoremap <C-Space> <C-x><C-o>
+    nnoremap <F12> :GoTest<CR>
     " let g:go_def_mode='gopls'
     " let g:go_info_mode='gopls'
 
