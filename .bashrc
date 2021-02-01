@@ -18,6 +18,7 @@ export LESS_TERMCAP_so=$'\e[01;44;33m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[01;32m'
 export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:~/.local/bin
 
 export GOPATH="$HOME/go"
 
@@ -66,17 +67,35 @@ alias :q='exit'
 alias gs='git status'
 alias gaa='git add .'
 alias ga='git add'
+alias gd='git diff'
+alias gpl='git pull'
 alias gcmsg='git commit -m'
-alias wa='watch -t -d !!'
 
 # al-info
 alias lg='lazygit'
 alias ld='lazydocker'
 
 # virtualenv
-alias mla='source /home/orginux/repositories/_molecule/bin/activate'
-alias mla3='source /home/orginux/repositories/_molecule3/bin/activate'
+alias mla='source ~/repositories/_molecule/bin/activate'
+alias mla3='source ~/repositories/_molecule3-new/bin/activate && export ANSIBLE_FORCE_COLOR=true'
+
+alias gcloud='~/google-cloud-sdk/bin/gcloud'
+
+# k8s
+source ~/.kubectl_aliases
+complete -F __start_kubectl k
+source <(kubectl completion bash)
 
 [ -z "$TMUX" ] && command -v tmux > /dev/null && TERM=xterm-256color && exec tmux
 eval "$(starship init bash)"
-source <(kubectl completion bash)
+
+function mkcd {
+  last=$(eval "echo \$$#")
+  if [ ! -n "$last" ]; then
+    echo "Enter a directory name"
+  elif [ -d $last ]; then
+    echo "\`$last' already exists"
+  else
+    mkdir $@ && cd $last
+  fi
+}
