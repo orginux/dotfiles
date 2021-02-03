@@ -35,6 +35,7 @@ call plug#begin('~/.vim/plugged')
 " Поддержка golang
     Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
     let g:go_fmt_command = "goimports"
+    let g:go_auto_type_info = 1 " Automatically get signature/type info for object under cursor 
     inoremap <C-Space> <C-x><C-o>
     nnoremap <F12> :GoTest<CR>
     " let g:go_def_mode='gopls'
