@@ -89,8 +89,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'pearofducks/ansible-vim'
     let g:ansible_extra_keywords_highlight = 1
     let g:ansible_name_highlight = 'b'
-    let g:ansible_template_syntaxes = { '*.yml.j2': 'yaml' }
-    let g:ansible_template_syntaxes = { '*.yaml.j2': 'yaml' }
+    let g:ansible_template_syntaxes = { 'yml.j2': 'yaml' }
+    let g:ansible_template_syntaxes = { 'yaml.j2': 'yaml' }
 
     Plug 'neomake/neomake'
 
@@ -112,7 +112,8 @@ call plug#begin('~/.vim/plugged')
 " Startup screen
     Plug 'mhinz/vim-startify'
 
-
+" jenkins
+    Plug 'martinda/Jenkinsfile-vim-syntax'
 call plug#end()
 
 " Подсветка синтаксиса
@@ -501,13 +502,14 @@ endfunction
 
 "Цветовая схема
 set cursorline
-" set background=dark
+set background=dark
 set termguicolors
-" colorscheme gotham256
 " colorscheme nord
 
-colorscheme dracula
-let g:airline_theme='dracula' " if you have Airline installed and want the associated theme
+" colorscheme gotham
+colorscheme gotham256
+let g:airline_theme='gotham' " if you have Airline installed and want the associated theme
+let g:gotham_airline_emphasised_insert = 0
 
 " ayu
 " set termguicolors     " enable true colors support
