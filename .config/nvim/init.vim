@@ -58,10 +58,10 @@ call plug#begin('~/.vim/plugged')
     Plug 'mhinz/vim-signify'
 
 " Colorschemes
-    Plug 'whatyouhide/vim-gotham'
-    " Plug 'rakr/vim-two-firewatch'
+    " Plug 'whatyouhide/vim-gotham'
+    Plug 'rakr/vim-two-firewatch'
     " Plug 'arcticicestudio/nord-vim'
-    " Plug 'ayu-theme/ayu-vim'
+    Plug 'ayu-theme/ayu-vim'
     Plug 'dracula/vim', { 'as': 'dracula' } " https://github.com/dracula/vim
     " Plug 'NLKNguyen/papercolor-theme' " https://github.com/NLKNguyen/papercolor-theme
 
@@ -208,4 +208,7 @@ set clipboard^=unnamed,unnamedplus
 
 " shows hidden characters
 set invlist
+
+" system clipboard
+set clipboard+=unnamedplus
 " ========== Seats end ==========
