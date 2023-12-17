@@ -9,6 +9,7 @@ let NERDTreeShowHidden=1
 
 " Status Line
 Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
 
 " Colorful Brackets
 Plug 'luochen1990/rainbow'
@@ -51,9 +52,10 @@ Plug 'mhinz/vim-signify'
 Plug 'whatyouhide/vim-gotham'
 Plug 'rakr/vim-two-firewatch'
 Plug 'ayu-theme/ayu-vim'
-Plug 'morhetz/gruvbox'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'folke/tokyonight.nvim'
+" Plug 'ellisonleao/gruvbox.nvim'
+Plug 'morhetz/gruvbox'
 
 " Search and FZF
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -74,7 +76,7 @@ Plug 'tpope/vim-commentary'
 " Tabs
 Plug 'mkitt/tabline.vim'
 
-Plug 'vim-airline/vim-airline-themes'
+Plug 'hashivim/vim-terraform'
 
 call plug#end()
 " ===============================
@@ -88,14 +90,18 @@ set termguicolors
 " let ayucolor = "dark"
 " let g:airline_theme = 'ayu'
 
-colorscheme PaperColor
-set background=dark
+" colorscheme PaperColor
+" set background=dark
 set number
 set laststatus=2
 " let g:airline_theme='papercolor'
-let g:airline_theme='gotham256' " if you have Airline installed and want the associated theme
+" let g:airline_theme='gotham256' " if you have Airline installed and want the associated theme
 
 " colorscheme tokyonight-night
+
+" gruvbox
+set background=dark " or light if you want light mode
+colorscheme gruvbox
 
 " ========== Color end ==========
 
