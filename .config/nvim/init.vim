@@ -54,7 +54,6 @@ Plug 'rakr/vim-two-firewatch'
 Plug 'ayu-theme/ayu-vim'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'folke/tokyonight.nvim'
-" Plug 'ellisonleao/gruvbox.nvim'
 Plug 'morhetz/gruvbox'
 
 " Search and FZF
