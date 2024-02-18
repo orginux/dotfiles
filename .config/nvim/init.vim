@@ -1,3 +1,5 @@
+let mapleader = " " " Set Leader Key to Space
+
 " ===============================
 " Plugin Manager
 call plug#begin('~/.vim/plugged')
@@ -55,6 +57,7 @@ Plug 'ayu-theme/ayu-vim'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'folke/tokyonight.nvim'
 Plug 'morhetz/gruvbox'
+Plug 'wittyjudge/gruvbox-material.nvim'
 
 " Search and FZF
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -76,6 +79,21 @@ Plug 'tpope/vim-commentary'
 Plug 'mkitt/tabline.vim'
 
 Plug 'hashivim/vim-terraform'
+
+" Telescope
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.5' }
+
+" Lazygit
+Plug 'kdheepak/lazygit.nvim'
+nnoremap <silent> <leader>gg :LazyGit<CR>
+
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+" Requires https://github.com/BurntSushi/ripgrep
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 call plug#end()
 " ===============================
@@ -101,6 +119,7 @@ set laststatus=2
 " gruvbox
 set background=dark " or light if you want light mode
 colorscheme gruvbox
+" colorscheme gruvbox-material
 
 " ========== Color end ==========
 
