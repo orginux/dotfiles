@@ -41,75 +41,112 @@ tmux_conf_new_session_prompt=false
 # -- display -------------------------------------------------------------------
 
 # RGB 24-bit colour support (tmux >= 2.2), possible values are:
+#  - true
+#  - false (default)
 tmux_conf_theme_24b_colour=true
 
 # window style
 tmux_conf_theme_window_fg='default'
-tmux_conf_theme_window_bg='#24283b'  # Tokyo Night background
+tmux_conf_theme_window_bg='#1d2021'
 
-# highlight focused pane, possible values are:
+# highlight focused pane (tmux >= 2.1), possible values are:
+#   - true
+#   - false (default)
 tmux_conf_theme_highlight_focused_pane=true
 
 # focused pane colours:
-tmux_conf_theme_focused_pane_fg='#c0caf5'  # Tokyo Night foreground
-tmux_conf_theme_focused_pane_bg='#1a1b26'  # Tokyo Night darker background
+tmux_conf_theme_focused_pane_fg='#ebdbb2'       # fg_223
+tmux_conf_theme_focused_pane_bg='#282828'       # bg0_h
 
 # pane border style, possible values are:
+#   - thin (default)
+#   - fat
 tmux_conf_theme_pane_border_style=thin
 
 # pane borders colours:
-tmux_conf_theme_pane_border='#565f89'  # Tokyo Night pane border
-tmux_conf_theme_pane_active_border='#7aa2f7'  # Tokyo Night active pane border
+tmux_conf_theme_pane_border='#98971a'                   # gray_2
+tmux_conf_theme_pane_active_border='#b8bb26'            # green_10
 
 # pane indicator colours
-tmux_conf_theme_pane_indicator='#d65d0e'  # Adjusted for visibility
-tmux_conf_theme_pane_active_indicator='#fe8019'  # Adjusted for visibility
+tmux_conf_theme_pane_indicator='#d65d0e'                # orange_166
+tmux_conf_theme_pane_active_indicator='#fe8019'         # orange_208
 
 # status line style
-tmux_conf_theme_message_fg='#1d2021'  # Adjusted for contrast
-tmux_conf_theme_message_bg='#8ec07c'  # Adjusted for visibility
+tmux_conf_theme_message_fg='#1d2021'                    # bg0_h
+tmux_conf_theme_message_bg='#8ec07c'                    # aqua_108
 tmux_conf_theme_message_attr='bold'
 
+# status line command style (<prefix> : Escape)
+# tmux_conf_theme_message_command_fg='#b8bb26'            # yellow
+# tmux_conf_theme_message_command_bg='#000000'            # black
+# tmux_conf_theme_message_command_attr='bold'
+
 # window modes style
-tmux_conf_theme_mode_fg='#98971a'  # Adjusted for visibility
-tmux_conf_theme_mode_bg='#1d2021'  # Dark mode bg
+tmux_conf_theme_mode_fg='#98971a'                       # green_142
+tmux_conf_theme_mode_bg='#1d2021'                       # bg0_h
 tmux_conf_theme_mode_attr='bold'
 
 # status line style
-tmux_conf_theme_status_fg='#cc241d'  # Adjusted for contrast
-tmux_conf_theme_status_bg='#1a1b26'  # Tokyo Night background
+tmux_conf_theme_status_fg='#cc241d'                     # red
+tmux_conf_theme_status_bg='#1d2021'                     # bg0_h
 tmux_conf_theme_status_attr='none'
 
+# terminal title
+#   - built-in variables are:
+#     - #{circled_window_index}
+#     - #{circled_session_name}
+#     - #{hostname}
+#     - #{hostname_ssh}
+#     - #{username}
+#     - #{username_ssh}
+tmux_conf_theme_terminal_title='#h ❐ #S ● #I #W'
+
 # window status style
-tmux_conf_theme_window_status_fg='#a9b1d6'  # A lighter foreground color for contrast against the dark background
-tmux_conf_theme_window_status_bg='#1a1b26'  # The dark blue background color characteristic of Tokyo Night
+#   - built-in variables are:
+#     - #{circled_window_index}
+#     - #{circled_session_name}
+#     - #{hostname}
+#     - #{hostname_ssh}
+#     - #{username}
+#     - #{username_ssh}
+tmux_conf_theme_window_status_fg='#bdae93'      # fg3
+tmux_conf_theme_window_status_bg='#1d2021'      # bg0_h
 tmux_conf_theme_window_status_attr='none'
 tmux_conf_theme_window_status_format='#I #W'
+#tmux_conf_theme_window_status_format='#{circled_window_index} #W'
+#tmux_conf_theme_window_status_format='#I #W#{?window_bell_flag,🔔,}#{?window_zoomed_flag,🔍,}'
 
 # window current status style
-tmux_conf_theme_window_status_current_fg='#7aa2f7'  # Vibrant blue for the currently selected window
-tmux_conf_theme_window_status_current_bg='#1a1b26'  # Dark background consistent with the Tokyo Night theme
+#   - built-in variables are:
+#     - #{circled_window_index}
+#     - #{circled_session_name}
+#     - #{hostname}
+#     - #{hostname_ssh}
+#     - #{username}
+#     - #{username_ssh}
+tmux_conf_theme_window_status_current_fg='#98971a'      # green_106
+tmux_conf_theme_window_status_current_bg='#1d2021'      # light blue
+tmux_conf_theme_window_status_current_bg='#282828'      # bg
 tmux_conf_theme_window_status_current_attr='bold'
 tmux_conf_theme_window_status_current_format='#I #W'
+#tmux_conf_theme_window_status_current_format='#{circled_window_index} #W'
+#tmux_conf_theme_window_status_current_format='#I #W#{?window_zoomed_flag,🔍,}'
 
 # window activity status style
-tmux_conf_theme_window_status_activity_fg='#f7768e'  # Tokyo Night pink
-tmux_conf_theme_window_status_activity_bg='#1a1b26'  # Tokyo Night background
+tmux_conf_theme_window_status_activity_fg='#fe8019'     # orange
+tmux_conf_theme_window_status_activity_bg='#1d2021'     # bg0_h
 tmux_conf_theme_window_status_activity_attr='underscore'
 
 # window bell status style
-tmux_conf_theme_window_status_bell_fg='#7aa2f7'  # Blue from Tokyo Night palette
-tmux_conf_theme_window_status_bell_bg='#1a1b26'  # Dark background consistent with the Tokyo Night theme
+tmux_conf_theme_window_status_bell_fg='#d65d0e'
+tmux_conf_theme_window_status_bell_bg='#ff79c6'
 tmux_conf_theme_window_status_bell_attr='blink,bold'
 
 # window last status style
-tmux_conf_theme_window_status_last_fg='#73daca'  # A cyan/greenish color from the Tokyo Night palette
-tmux_conf_theme_window_status_last_bg='#1a1b26'  # Dark background, consistent with Tokyo Night
+# tmux_conf_theme_window_status_last_fg='#00afff'         # light blue
+tmux_conf_theme_window_status_last_fg='#83a598'         # Cyan
+tmux_conf_theme_window_status_last_bg='#282828'         # bg0
 tmux_conf_theme_window_status_last_attr='none'
-
-# status left/right style adjustments as needed...
-
-# message command style
 
 # status left/right sections separators
 tmux_conf_theme_left_separator_main=''
@@ -149,17 +186,17 @@ tmux_conf_theme_status_left=''
 tmux_conf_theme_status_right='#{username}#{root} | #{hostname} '
 
 # status left style
-
-# status left style, adjusted for Tokyo Night theme
-tmux_conf_theme_status_left_fg='#c0caf5,#7aa2f7,#bb9af7'  # Lighter shades for text
-tmux_conf_theme_status_left_bg='#8c4351,#1a1b26,#1a1b26'  # Consistent dark background
+# tmux_conf_theme_status_left_fg='#000000,#e4e4e4,#e4e4e4'  # black, white , white
+# tmux_conf_theme_status_left_bg='#317bec,#ff00af,#00afff'  # yellow, pink, white blue
+# tmux_conf_theme_status_left_attr='bold,none,none'
+tmux_conf_theme_status_left_fg='#1d2021,#e81088,#e81088'  # black, white , white
+tmux_conf_theme_status_left_bg='#609474,#e81088,#317bec'  # yellow, pink, white blue
 tmux_conf_theme_status_left_attr='bold,none,none'
 
-# status right style, adjusted for Tokyo Night theme
-tmux_conf_theme_status_right_fg='#c0caf5,#7aa2f7,#fe8019'  # Tokyo Night themed colors
-tmux_conf_theme_status_right_bg='#1a1b26,#1a1b26,#1a1b26'  # Consistent dark background
+# status right style
+tmux_conf_theme_status_right_fg='#a89984,#1d2021,#fe8019' # fr4, bg0_h, orange_208
+tmux_conf_theme_status_right_bg='#1d2021,#689d6a,#b16286' # bg0_h, auqua_72, purple_132
 tmux_conf_theme_status_right_attr='none,none,bold'
-
 
 # pairing indicator
 tmux_conf_theme_pairing='👓 '          # U+1F453
