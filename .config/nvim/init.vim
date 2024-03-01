@@ -104,7 +104,7 @@ set termguicolors
 
 " Color Scheme
 " colorscheme ayu
-" let ayucolor = "dark"
+let ayucolor = "dark"
 " let g:airline_theme = 'ayu'
 
 " colorscheme PaperColor
@@ -112,13 +112,13 @@ set termguicolors
 set number
 set laststatus=2
 " let g:airline_theme='papercolor'
-" let g:airline_theme='gotham256' " if you have Airline installed and want the associated theme
+let g:airline_theme='gotham256' " if you have Airline installed and want the associated theme
 
-" colorscheme tokyonight-night
+colorscheme tokyonight-night
 
 " gruvbox
-set background=dark " or light if you want light mode
-colorscheme gruvbox
+" set background=dark " or light if you want light mode
+" colorscheme gruvbox
 " colorscheme gruvbox-material
 
 " ========== Color end ==========
